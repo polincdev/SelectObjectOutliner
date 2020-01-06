@@ -3,11 +3,11 @@ Library for outlining selected models.
 
 ### Modes
 Works in two modes:
-1. Material mode - based on duplicated geometry and unshaded material. Simpler and faster, bad looking. Works with the depth. 
+1. Material mode - based on a duplicated geometry and unshaded material. Simpler and faster, but bad looking. Works with the depth. 
 
 ![SelectObjectOutlinerMaterial](../master/img/SelectObjectOutlinerMaterial.jpg)
 
-2. Filter mode - based on filter. Nice looking. Slower. Disregards the depth. 
+2. Filter mode - based on a filter. Nice looking. Slower. Disregards the depth. 
 
 ![SelectObjectOutlinerFilter](../master/img/SelectObjectOutlinerFilter.jpg)
 
