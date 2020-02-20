@@ -11,17 +11,14 @@ import com.jme3.texture.FrameBuffer;
 import com.jme3.texture.Image.Format;
 import com.jme3.texture.Texture;
 
-/**
- * 描边预处理filter
- * @author DING
- */
+  
 public class OutlinePreFilter extends Filter {
 
 	private Pass normalPass;
 	private RenderManager renderManager;
-
+ 
 	/**
-	 * Creates a CartoonEdgeFilter
+	 * Creates a OutlinePreFilter
 	 */
 	public OutlinePreFilter() {
 		super("OutlinePreFilter");

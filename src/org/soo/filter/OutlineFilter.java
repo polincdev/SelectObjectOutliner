@@ -10,10 +10,7 @@ import com.jme3.renderer.RenderManager;
 import com.jme3.renderer.ViewPort;
 import com.jme3.texture.FrameBuffer;
 
-/**
- * 纯色外描边
- * @author DING
- */
+  
 public class OutlineFilter extends Filter {
 
 	private OutlinePreFilter outlinePreFilter;
