@@ -34,7 +34,7 @@ public class SelectObjectOutliner {
     public static int OUTLINER_TYPE_FILTER=0;
     public static int OUTLINER_TYPE_MATERIAL=1;
     private Material wireMaterial;
-    private Node rootNode;
+    private Node modelNode;
     int outlinerType=OUTLINER_TYPE_FILTER;
     private  int width=5;
     private ColorRGBA color=ColorRGBA.Yellow;
@@ -43,14 +43,14 @@ public class SelectObjectOutliner {
         
     }
     
-    public void initOutliner(int type,  int width, ColorRGBA color,Node rootNode, FilterPostProcessor fpp, RenderManager renderManager,AssetManager assetManager, Camera cam)
+    public void initOutliner(int type,  int width, ColorRGBA color,Node modelNode, FilterPostProcessor fpp, RenderManager renderManager,AssetManager assetManager, Camera cam)
     {
         outlinerType=type;
         this.fpp=fpp;
         this.renderManager=renderManager;
         this.assetManager=assetManager;
         this.cam=cam;
-        this.rootNode=rootNode;
+        this.modelNode=modelNode;
         this.width=width;
         this.color=color;
         if(outlinerType==OUTLINER_TYPE_MATERIAL)
@@ -98,14 +98,14 @@ public class SelectObjectOutliner {
           
            Spatial geo= (Spatial)model.getUserData("OutlineGeo"); 
            if (geo != null)
-               rootNode.detachChild(geo);
+               modelNode.detachChild(geo);
       }
       private void showOutlineMaterialEffect(Spatial model, int width, ColorRGBA color) {
           
           Spatial geo=model.clone(false);
           geo.setMaterial(wireMaterial);
           model.setUserData("OutlineGeo", geo);
-          rootNode.attachChild(geo);
+          modelNode.attachChild(geo);
       }
     private void hideOutlineFilterEffect(Spatial model) {
 		OutlineFilter outlineFilter = model.getUserData("OutlineFilter");
