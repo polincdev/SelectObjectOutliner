@@ -31,18 +31,41 @@ public class SelectObjectOutliner {
     private RenderManager renderManager;
     private AssetManager assetManager;
     private Camera cam;
+
+    /**
+     *
+     */
     public static int OUTLINER_TYPE_FILTER=0;
+
+    /**
+     *
+     */
     public static int OUTLINER_TYPE_MATERIAL=1;
     private Material wireMaterial;
     private Node modelNode;
     int outlinerType=OUTLINER_TYPE_FILTER;
     private  int width=5;
     private ColorRGBA color=ColorRGBA.Yellow;
+
+    /**
+     *
+     */
     public SelectObjectOutliner()
     {
         
     }
     
+    /**
+     *
+     * @param type of filter: OUTLINER_TYPE_FILTER or OUTLINER_TYPE_MATERIAL
+     * @param width of the selection border
+     * @param color of the selection border
+     * @param modelNode direct node containing the spacial. Wil be used to add geometry in  OUTLINER_TYPE_MATERIAL node. 
+     * @param fpp - FilterPostProcessor to handle filtering
+     * @param renderManager
+     * @param assetManager
+     * @param cam - main cam
+     */
     public void initOutliner(int type,  int width, ColorRGBA color,Node modelNode, FilterPostProcessor fpp, RenderManager renderManager,AssetManager assetManager, Camera cam)
     {
         outlinerType=type;
@@ -66,7 +89,10 @@ public class SelectObjectOutliner {
         }
     }
     
-   
+    /**
+     *
+     * @param model to be delected
+     */
     public void deselect(Spatial model)
     {
           if(outlinerType==OUTLINER_TYPE_FILTER)
@@ -77,7 +103,11 @@ public class SelectObjectOutliner {
             model.setUserData("OutlineSelected", false);
     }
     
-   public void select(Spatial model) 
+    /**
+     *
+     * @param model to delected
+     */
+    public void select(Spatial model) 
    {
          if(outlinerType==OUTLINER_TYPE_FILTER)
            showOutlineFilterEffect(  model,   width,   color);
@@ -87,7 +117,12 @@ public class SelectObjectOutliner {
           model.setUserData("OutlineSelected", true);
    }
    
-   public boolean isSelected(Spatial model) 
+    /**
+     *
+     * @param model
+     * @return
+     */
+    public boolean isSelected(Spatial model) 
    {
         if(model.getUserData("OutlineSelected")!=null && ((Boolean)model.getUserData("OutlineSelected"))==true) 
            return  true;
